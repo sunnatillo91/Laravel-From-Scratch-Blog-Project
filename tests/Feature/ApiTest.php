@@ -19,7 +19,17 @@ class ApiTest extends TestCase
 
         $response->assertStatus(200)
         ->assertJson([
-            // 'created' => true,
+            'id' => 1
+        ]);
+    }
+
+    public function test_right_login_coming()
+    {
+        $response = $this->getJson('api/mobile/token');
+
+        $response->assertOk()
+        ->assertJson([
+            'api_token' =>'wcbq,hebckbjdjcbh'
         ]);
     }
 }
